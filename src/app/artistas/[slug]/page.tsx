@@ -93,6 +93,14 @@ export default async function ArtistDetailPage({ params }: ArtistPageProps) {
         url: siteUrl,
         name: siteConfig.name,
         inLanguage: "es",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${siteUrl}/buscar?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
       {
         "@type": "WebPage",

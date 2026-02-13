@@ -113,6 +113,14 @@ export default async function HomePage() {
         description: siteConfig.description,
         inLanguage: "es",
         publisher: { "@type": "Organization", name: siteConfig.name, url: siteUrl },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${siteUrl}/buscar?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
       {
         "@type": "CollectionPage",

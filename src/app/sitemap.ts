@@ -82,6 +82,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /* ── Extra hubs ── */
   const extraPages: MetadataRoute.Sitemap = [
     {
+      url: `${siteUrl}/buscar`,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    {
       url: `${siteUrl}/coros/recientes`,
       lastModified: homeLastModified,
       changeFrequency: "daily" as const,
