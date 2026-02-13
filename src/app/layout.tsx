@@ -70,6 +70,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Favicons & Web App Manifest */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#111827" />
         {/* LLMs.txt for AI crawlers – https://llmstxt.org */}
         <link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="LLMs.txt" />
         <link rel="alternate" type="text/plain" href={`${siteUrl}/llms-full.txt`} title="LLMs-full.txt" />
