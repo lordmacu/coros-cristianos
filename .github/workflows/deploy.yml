@@ -30,6 +30,7 @@ jobs:
       - run: npx next build
         env:
           NODE_OPTIONS: "--max-old-space-size=8192"
+          NEXT_PUBLIC_SITE_URL: "https://lordmacu.github.io/coros-cristianos"
 
       - uses: actions/upload-pages-artifact@v3
         with:
