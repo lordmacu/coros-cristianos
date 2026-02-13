@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
 import Link from "next/link";
-import Script from "next/script";
 import "./globals.css";
 import { getSiteUrl, siteConfig } from "@/lib/site";
 
@@ -74,15 +73,13 @@ export default function RootLayout({
         {/* LLMs.txt for AI crawlers – https://llmstxt.org */}
         <link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="LLMs.txt" />
         <link rel="alternate" type="text/plain" href={`${siteUrl}/llms-full.txt`} title="LLMs-full.txt" />
-      </head>
-      <body className={`${bodyFont.variable} ${displayFont.variable} antialiased`}>
-        <Script
-          id="adsense-script"
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8060767564262502"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
+      </head>
+      <body className={`${bodyFont.variable} ${displayFont.variable} antialiased`}>
         <nav className="sticky top-0 z-50 border-b border-[#e5e7eb] bg-white/80 backdrop-blur-md">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-8 lg:px-12">
             <Link
