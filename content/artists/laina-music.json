@@ -1,0 +1,19 @@
+{
+  "name": "Laina Music",
+  "slug": "laina-music",
+  "songCount": 1,
+  "thumbnailUrl": "https://i.ytimg.com/vi/RUyL8OQMlMM/hqdefault.jpg",
+  "songs": [
+    {
+      "slug": "letra-canta-conmigo-laina-music-lucio-laina",
+      "title": "Canta conmigo",
+      "author": "Laina Music, Lucio Laina",
+      "album": "Como no amarte",
+      "metaDescription": "Descubre la letra y el significado de Canta conmigo de Laina Music y Lucio Laina. Reflexiona sobre esta canción cristiana de adoración y amor.",
+      "lyricsPreview": "Tu sabes cuánto te amo, Tú sabes cuánto mi amor Tu sabes cuánto te amo, Tú sabes cuánto mi amor Y por nada de este mundo voy a dejarte nunca de amar Te llevo dentro de mi alma, ho...",
+      "youtubeId": "RUyL8OQMlMM",
+      "thumbnailUrl": "https://i.ytimg.com/vi/RUyL8OQMlMM/hqdefault.jpg",
+      "generatedAt": "2026-02-12T21:08:41.858Z"
+    }
+  ]
+}

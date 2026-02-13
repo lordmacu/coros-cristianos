@@ -1,0 +1,57 @@
+# Coros Cristianos
+
+> Letras de coros cristianos con reflexiones devocionales, ficha del autor y video de YouTube cuando esta disponible.
+
+La plataforma Coros Cristianos ofrece una coleccion curada de mas de 3400 letras de coros y canciones cristianas en español. Cada coro incluye la letra completa, una reflexion devocional, informacion del autor y enlace al video de YouTube cuando esta disponible.
+
+## Contenido del sitio
+
+- [Inicio](https://coros.biblia.app/): Pagina principal con catalogo paginado de todos los coros cristianos disponibles.
+- [Artistas](https://coros.biblia.app/artistas): Directorio de mas de 590 artistas y compositores de coros cristianos.
+- [Sitemap](https://coros.biblia.app/sitemap.xml): Mapa del sitio XML con todas las URLs.
+- [Informacion completa para LLMs](https://coros.biblia.app/llms-full.txt): Version extendida con detalles de todas las secciones y paginas.
+
+## Estructura de cada coro
+
+Cada coro se encuentra en la ruta `/coros/{slug}` y contiene:
+
+- **Titulo del coro**: Nombre completo de la cancion o himno cristiano.
+- **Autor(es)**: Compositores o interpretes conocidos.
+- **Album**: Disco o coleccion al que pertenece (cuando aplica).
+- **Letra completa**: Texto integro de la cancion organizado por estrofas.
+- **Reflexion devocional**: Contenido editorial con contexto biblico y espiritual sobre el coro.
+- **Video de YouTube**: Enlace embebido al video musical (cuando esta disponible).
+- **Miniatura**: Imagen del video de YouTube como portada visual.
+
+## Temas principales
+
+- Alabanza y adoracion
+- Himnos cristianos clasicos
+- Coros congregacionales
+- Canticos espirituales
+- Musica cristiana en español
+- Reflexiones devocionales basadas en letras
+
+## Estructura de paginas de artista
+
+Cada artista se encuentra en la ruta `/artistas/{slug}` y contiene:
+
+- **Nombre del artista**: Nombre completo del compositor o interprete.
+- **Cantidad de coros**: Total de canciones del artista en la plataforma.
+- **Albumes**: Lista de albumes o colecciones del artista.
+- **Lista de coros**: Todas las canciones con enlace a la letra completa.
+
+## Datos tecnicos
+
+- URL base: https://coros.biblia.app
+- Idioma: Español (es-CO)
+- Total de coros: 3400+
+- Total de artistas: 590+
+- Formato de URLs de coros: /coros/{slug}
+- Formato de URLs de artistas: /artistas/{slug}
+- Paginacion del catalogo: /?page={numero}
+- Datos estructurados: Schema.org (MusicComposition, MusicRecording, MusicGroup, Article, ItemList)
+
+## Contacto
+
+Este sitio es parte del proyecto Biblia App.
