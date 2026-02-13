@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 import { getSiteUrl, siteConfig } from "@/lib/site";
 
@@ -37,11 +38,20 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     url: siteUrl,
+    images: [
+      {
+        url: `${siteUrl}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} – Letras y contenido devocional`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
+    images: [`${siteUrl}/opengraph-image`],
   },
   robots: {
     index: true,
@@ -61,9 +71,46 @@ export default function RootLayout({
     <html lang="es">
       <head>
         {/* LLMs.txt for AI crawlers – https://llmstxt.org */}
-        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
+        <link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="LLMs.txt" />
+        <link rel="alternate" type="text/plain" href={`${siteUrl}/llms-full.txt`} title="LLMs-full.txt" />
       </head>
       <body className={`${bodyFont.variable} ${displayFont.variable} antialiased`}>
+        <nav className="sticky top-0 z-50 border-b border-[#e5e7eb] bg-white/80 backdrop-blur-md">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-8 lg:px-12">
+            <Link
+              href="/"
+              className="font-[family-name:var(--font-display)] text-lg font-bold text-[#111827] transition hover:text-[#374151]"
+            >
+              🎵 Coros Cristianos
+            </Link>
+            <ul className="flex items-center gap-1 sm:gap-2">
+              <li>
+                <Link
+                  href="/"
+                  className="rounded-full px-3 py-1.5 text-sm font-medium text-[#4b5563] transition hover:bg-[#f3f4f6] hover:text-[#111827]"
+                >
+                  Inicio
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/artistas"
+                  className="rounded-full px-3 py-1.5 text-sm font-medium text-[#4b5563] transition hover:bg-[#f3f4f6] hover:text-[#111827]"
+                >
+                  Artistas
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/videos"
+                  className="rounded-full px-3 py-1.5 text-sm font-medium text-[#4b5563] transition hover:bg-[#f3f4f6] hover:text-[#111827]"
+                >
+                  Videos
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
         {children}
       </body>
     </html>

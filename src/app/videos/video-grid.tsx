@@ -4,6 +4,7 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { VideoEntry } from "@/lib/videos";
+import { getSitePathPrefix } from "@/lib/site";
 
 /* ── Types ── */
 
@@ -44,6 +45,20 @@ function VideoModal({
   video: VideoEntry;
   onClose: () => void;
 }) {
+  const sitePathPrefix = useMemo(() => {
+    const configuredPrefix = getSitePathPrefix();
+    if (configuredPrefix) {
+      return configuredPrefix;
+    }
+
+    if (typeof window === "undefined") {
+      return "";
+    }
+
+    const marker = "/videos";
+    const idx = window.location.pathname.indexOf(marker);
+    return idx > 0 ? window.location.pathname.slice(0, idx) : "";
+  }, []);
   const [lyrics, setLyrics] = useState<LyricsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -52,7 +67,7 @@ function VideoModal({
   useEffect(() => {
     setLoading(true);
     setError(false);
-    fetch(`/lyrics/${video.slug}.json`)
+    fetch(`${sitePathPrefix}/lyrics/${video.slug}.json`)
       .then((r) => {
         if (!r.ok) throw new Error("Not found");
         return r.json();
@@ -65,7 +80,7 @@ function VideoModal({
         setError(true);
         setLoading(false);
       });
-  }, [video.slug]);
+  }, [sitePathPrefix, video.slug]);
 
   // Close on Escape
   useEffect(() => {

@@ -7,6 +7,7 @@ import VideoGrid from "./video-grid";
 
 const siteUrl = getSiteUrl();
 const pageUrl = `${siteUrl}/videos`;
+const fallbackImage = `${siteUrl}/opengraph-image`;
 
 export const metadata: Metadata = {
   title: "Videos de coros cristianos – Coros Cristianos",
@@ -28,12 +29,14 @@ export const metadata: Metadata = {
     description:
       "Mira los mejores videos de coros y alabanzas cristianas. Más de 600 videos de artistas cristianos.",
     siteName: siteConfig.name,
+    images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Videos de coros cristianos" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Videos de coros cristianos",
     description:
       "Mira los mejores videos de coros y alabanzas cristianas. Más de 600 videos de artistas cristianos.",
+    images: [fallbackImage],
   },
   robots: {
     index: true,
@@ -137,6 +140,12 @@ export default async function VideosPage() {
               className="inline-flex items-center gap-2 rounded-full border border-[#d6dae1] bg-[#f8fafc] px-5 py-2.5 text-sm font-semibold text-[#374151] transition hover:bg-[#eef2f7]"
             >
               ← Coros
+            </Link>
+            <Link
+              href="/videos/artistas"
+              className="inline-flex items-center gap-2 rounded-full border border-[#d6dae1] bg-[#f8fafc] px-5 py-2.5 text-sm font-semibold text-[#374151] transition hover:bg-[#eef2f7]"
+            >
+              👥 Videos por artista
             </Link>
             <Link
               href="/artistas"

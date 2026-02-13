@@ -38,7 +38,9 @@ export async function generateMetadata({ params }: SongPageProps): Promise<Metad
   const pageTitle = post.postTitle || post.title;
   const pageDescription = post.metaDescription || getLyricsPreview(post.lyrics, 155);
   const authorList = splitAuthors(post.author);
-  const imageUrl = post.thumbnailUrl ?? `${siteUrl}/coros/${post.slug}/opengraph-image`;
+  const imageUrl =
+    post.thumbnailUrl ??
+    (post.youtubeId ? `https://i.ytimg.com/vi/${post.youtubeId}/hqdefault.jpg` : `${siteUrl}/opengraph-image`);
   const keywords = [
     "letra cristiana",
     "coro cristiano",
@@ -78,6 +80,7 @@ export async function generateMetadata({ params }: SongPageProps): Promise<Metad
       description: pageDescription,
       siteName: siteConfig.name,
       publishedTime: post.generatedAt ?? undefined,
+      modifiedTime: post.generatedAt ?? undefined,
       authors: authorList,
       tags: [post.album, post.author].filter((value): value is string => Boolean(value)),
       images: [
@@ -110,6 +113,9 @@ export default async function SongDetailPage({ params }: SongPageProps) {
   const pageUrl = `${siteUrl}/coros/${post.slug}`;
   const pageTitle = post.postTitle || post.title;
   const pageDescription = post.metaDescription || getLyricsPreview(post.lyrics, 155);
+  const imageUrl =
+    post.thumbnailUrl ??
+    (post.youtubeId ? `https://i.ytimg.com/vi/${post.youtubeId}/hqdefault.jpg` : `${siteUrl}/opengraph-image`);
   const authors = splitAuthors(post.author);
   const authorLabel = authors.join(", ");
   const generatedLabel = formatGeneratedDate(post.generatedAt);
@@ -176,6 +182,7 @@ export default async function SongDetailPage({ params }: SongPageProps) {
         name: siteConfig.name,
         url: siteUrl,
       },
+      image: [imageUrl],
     },
     {
       "@type": "MusicComposition",
@@ -227,7 +234,7 @@ export default async function SongDetailPage({ params }: SongPageProps) {
       embedUrl: `https://www.youtube-nocookie.com/embed/${post.youtubeId}`,
       contentUrl: `https://www.youtube.com/watch?v=${post.youtubeId}`,
       uploadDate: post.generatedAt ?? undefined,
-      thumbnailUrl: post.thumbnailUrl ?? undefined,
+      thumbnailUrl: post.thumbnailUrl ?? `https://i.ytimg.com/vi/${post.youtubeId}/hqdefault.jpg`,
       isFamilyFriendly: true,
     });
   }

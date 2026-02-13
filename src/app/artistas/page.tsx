@@ -6,6 +6,7 @@ import ArtistList from "./artist-list";
 
 export async function generateMetadata(): Promise<Metadata> {
   const siteUrl = getSiteUrl();
+  const fallbackImage = `${siteUrl}/opengraph-image`;
   const index = await getArtistsIndex();
   const totalArtists = index?.totalArtists ?? 0;
 
@@ -33,11 +34,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       siteName: siteConfig.name,
+      images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Directorio de artistas cristianos" }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [fallbackImage],
     },
     robots: {
       index: true,
@@ -161,6 +164,14 @@ export default async function ArtistsPage() {
               <span className="rounded-full border border-[#d6dae1] bg-[#f8fafc] px-3 py-1.5">
                 {artists.length} artistas
               </span>
+            </div>
+            <div className="mt-5">
+              <Link
+                href="/ranking/artistas"
+                className="inline-flex items-center rounded-full border border-[#d6dae1] bg-[#f8fafc] px-4 py-2 text-sm font-semibold text-[#374151] transition hover:bg-[#eef2f7]"
+              >
+                Ver ranking de artistas
+              </Link>
             </div>
           </header>
 

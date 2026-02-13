@@ -22,6 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const title = "Coros Cristianos: Letras, Acordes y Reflexiones Devocionales";
   const description = `Explora mas de ${totalSongs.toLocaleString("es")} letras de coros cristianos con reflexiones devocionales, video de YouTube y ficha del autor. Encuentra alabanzas, adoracion y canticos espirituales.`;
+  const fallbackImage = `${siteUrl}/opengraph-image`;
 
   return {
     title,
@@ -48,14 +49,14 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       images: [
         {
-          url: `${siteUrl}/og-home.png`,
+          url: fallbackImage,
           width: 1200,
           height: 630,
           alt: "Coros Cristianos – Letras y reflexiones devocionales",
         },
       ],
     },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: { card: "summary_large_image", title, description, images: [fallbackImage] },
     robots: {
       index: true,
       follow: true,
@@ -127,6 +128,25 @@ export default async function HomePage() {
         "@id": `${siteUrl}#breadcrumb`,
         itemListElement: [{ "@type": "ListItem", position: 1, name: "Inicio", item: siteUrl }],
       },
+      {
+        "@type": "ItemList",
+        "@id": `${siteUrl}#songlist`,
+        name: "Listado de coros cristianos",
+        numberOfItems: songs.length,
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
+        itemListElement: songs.map((song, idx) => ({
+          "@type": "ListItem",
+          position: idx + 1,
+          url: `${siteUrl}/coros/${song.slug}`,
+          item: {
+            "@type": "MusicComposition",
+            name: song.title,
+            byArtist: song.authors.map((author) => ({ "@type": "Person", name: author })),
+            inAlbum: song.album ? { "@type": "MusicAlbum", name: song.album } : undefined,
+            url: `${siteUrl}/coros/${song.slug}`,
+          },
+        })),
+      },
     ],
   };
 
@@ -157,6 +177,17 @@ export default async function HomePage() {
               <span className="rounded-full border border-[#d6dae1] bg-[#f8fafc] px-3 py-1.5">{totalSongs} coros</span>
               <span className="rounded-full border border-[#d6dae1] bg-[#f8fafc] px-3 py-1.5">Mostrando: {firstSong}–{lastSong}</span>
               <span className="rounded-full border border-[#d6dae1] bg-[#f8fafc] px-3 py-1.5">Pagina {currentPage} de {totalPages}</span>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <Link href="/coros/recientes" className="rounded-full border border-[#d6dae1] bg-[#f8fafc] px-4 py-2 text-sm font-semibold text-[#374151] transition hover:bg-[#eef2f7]">
+                Coros recientes
+              </Link>
+              <Link href="/videos/artistas" className="rounded-full border border-[#d6dae1] bg-[#f8fafc] px-4 py-2 text-sm font-semibold text-[#374151] transition hover:bg-[#eef2f7]">
+                Videos por artista
+              </Link>
+              <Link href="/ranking/artistas" className="rounded-full border border-[#d6dae1] bg-[#f8fafc] px-4 py-2 text-sm font-semibold text-[#374151] transition hover:bg-[#eef2f7]">
+                Ranking de artistas
+              </Link>
             </div>
           </header>
 

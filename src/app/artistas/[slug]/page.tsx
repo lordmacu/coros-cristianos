@@ -26,8 +26,12 @@ export async function generateMetadata({ params }: ArtistPageProps): Promise<Met
 
   const siteUrl = getSiteUrl();
   const pageUrl = `${siteUrl}/artistas/${artist.slug}`;
+  const fallbackImage = `${siteUrl}/opengraph-image`;
   const title = `Letras de ${artist.name} – ${artist.songCount} coros cristianos`;
   const description = `Todas las letras de coros cristianos de ${artist.name}. ${artist.songCount} canciones con reflexiones devocionales, video de YouTube y ficha del autor.`;
+  const imageUrl = artist.thumbnailUrl ?? fallbackImage;
+  const imageWidth = artist.thumbnailUrl ? 480 : 1200;
+  const imageHeight = artist.thumbnailUrl ? 360 : 630;
 
   return {
     title,
@@ -47,15 +51,13 @@ export async function generateMetadata({ params }: ArtistPageProps): Promise<Met
       title,
       description,
       siteName: siteConfig.name,
-      images: artist.thumbnailUrl
-        ? [{ url: artist.thumbnailUrl, width: 480, height: 360, alt: `Foto de ${artist.name}` }]
-        : undefined,
+      images: [{ url: imageUrl, width: imageWidth, height: imageHeight, alt: `Foto de ${artist.name}` }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: artist.thumbnailUrl ? [artist.thumbnailUrl] : undefined,
+      images: [imageUrl],
     },
     robots: {
       index: true,

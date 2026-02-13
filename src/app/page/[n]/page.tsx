@@ -29,6 +29,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { n } = await params;
   const siteUrl = getSiteUrl();
+  const fallbackImage = `${siteUrl}/opengraph-image`;
   const index = await getHomeIndex();
   const totalPages = index?.totalPages ?? 1;
   const totalSongs = index?.totalSongs ?? 0;
@@ -49,8 +50,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title,
       description,
       siteName: siteConfig.name,
+      images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Listado de coros cristianos" }],
     },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: { card: "summary_large_image", title, description, images: [fallbackImage] },
     robots: {
       index: true,
       follow: true,
@@ -103,6 +105,25 @@ export default async function PaginatedHomePage({ params }: PageProps) {
           { "@type": "ListItem", position: 1, name: "Inicio", item: siteUrl },
           { "@type": "ListItem", position: 2, name: `Pagina ${currentPage}`, item: canonicalUrl },
         ],
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${canonicalUrl}#songlist`,
+        name: `Coros cristianos - pagina ${currentPage}`,
+        numberOfItems: songs.length,
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
+        itemListElement: songs.map((song, idx) => ({
+          "@type": "ListItem",
+          position: idx + 1,
+          url: `${siteUrl}/coros/${song.slug}`,
+          item: {
+            "@type": "MusicComposition",
+            name: song.title,
+            byArtist: song.authors.map((author) => ({ "@type": "Person", name: author })),
+            inAlbum: song.album ? { "@type": "MusicAlbum", name: song.album } : undefined,
+            url: `${siteUrl}/coros/${song.slug}`,
+          },
+        })),
       },
     ],
   };
