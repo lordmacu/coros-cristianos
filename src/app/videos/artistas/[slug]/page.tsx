@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: VideosByArtistPageProps): Pro
 
   const pageUrl = `${siteUrl}/videos/artistas/${artistData.artistSlug}`;
   const title = `Videos de ${artistData.artist} (${artistData.videoCount})`;
-  const description = `Mira ${artistData.videoCount} videos de coros cristianos de ${artistData.artist} con acceso directo a su letra.`;
+  const description = `Mira ${artistData.videoCount} videos de canciones cristianas de ${artistData.artist} con acceso directo a su letra.`;
   const imageUrl = artistData.thumbnailUrl ?? `${siteUrl}/opengraph-image`;
   const imageWidth = artistData.thumbnailUrl ? 480 : 1200;
   const imageHeight = artistData.thumbnailUrl ? 360 : 630;
@@ -79,7 +79,7 @@ export default async function VideosByArtistDetailPage({ params }: VideosByArtis
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
         name: `Videos de ${artistData.artist}`,
-        description: `${artistData.videoCount} videos de coros cristianos de ${artistData.artist}.`,
+        description: `${artistData.videoCount} videos de canciones cristianas de ${artistData.artist}.`,
         inLanguage: "es",
         isPartOf: { "@type": "WebSite", "@id": `${siteUrl}/#website` },
       },

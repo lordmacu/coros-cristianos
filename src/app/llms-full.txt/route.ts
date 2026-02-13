@@ -40,7 +40,7 @@ export async function GET() {
   const totalPages = homeIndex?.totalPages ?? 0;
   const totalVideos = videosData?.totalVideos ?? 0;
 
-  const text = `# Coros Cristianos – Documentacion completa para LLMs
+  const text = `# Canciones Cristianas – Documentacion completa para LLMs
 
 > Recurso estructurado para asistentes y agentes que necesiten resumir, citar o navegar el sitio.
 

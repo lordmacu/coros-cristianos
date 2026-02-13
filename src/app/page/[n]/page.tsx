@@ -35,8 +35,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const totalSongs = index?.totalSongs ?? 0;
   const currentPage = Number.parseInt(n, 10);
 
-  const title = `Coros Cristianos – Pagina ${currentPage} de ${totalPages}`;
-  const description = `Pagina ${currentPage} de ${totalPages} – Navega por nuestra coleccion de ${totalSongs.toLocaleString("es")} letras de coros cristianos con contenido devocional.`;
+  const title = `Canciones Cristianas – Pagina ${currentPage} de ${totalPages}`;
+  const description = `Pagina ${currentPage} de ${totalPages} – Navega por nuestra coleccion de ${totalSongs.toLocaleString("es")} letras de canciones cristianas con contenido devocional.`;
   const canonical = `${siteUrl}/page/${currentPage}`;
 
   return {
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title,
       description,
       siteName: siteConfig.name,
-      images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Listado de coros cristianos" }],
+      images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Listado de canciones cristianas" }],
     },
     twitter: { card: "summary_large_image", title, description, images: [fallbackImage] },
     robots: {
@@ -93,7 +93,7 @@ export default async function PaginatedHomePage({ params }: PageProps) {
         "@type": "CollectionPage",
         "@id": `${canonicalUrl}#webpage`,
         url: canonicalUrl,
-        name: `Coros Cristianos – Pagina ${currentPage}`,
+        name: `Canciones Cristianas – Pagina ${currentPage}`,
         description: `Coros ${firstSong} a ${lastSong} de ${totalSongs}`,
         inLanguage: "es",
         isPartOf: { "@type": "WebSite", "@id": `${siteUrl}/#website` },
@@ -109,7 +109,7 @@ export default async function PaginatedHomePage({ params }: PageProps) {
       {
         "@type": "ItemList",
         "@id": `${canonicalUrl}#songlist`,
-        name: `Coros cristianos - pagina ${currentPage}`,
+        name: `Canciones cristianas - pagina ${currentPage}`,
         numberOfItems: songs.length,
         itemListOrder: "https://schema.org/ItemListOrderAscending",
         itemListElement: songs.map((song, idx) => ({
@@ -146,12 +146,12 @@ export default async function PaginatedHomePage({ params }: PageProps) {
           </nav>
 
           <header className="border-b border-[#eef0f3] pb-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6b7280]">Biblioteca De Coros</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6b7280]">Biblioteca De Canciones</p>
             <h1 className="mt-2 max-w-4xl font-[family-name:var(--font-display)] text-4xl leading-tight text-[#111827] sm:text-5xl">
-              Coros cristianos – Pagina {currentPage}
+              Canciones cristianas – Pagina {currentPage}
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-8 text-[#4b5563]">
-              Navega por nuestra coleccion de coros cristianos. Mostrando coros {firstSong} a {lastSong} de{" "}
+              Navega por nuestra coleccion de canciones cristianas. Mostrando canciones {firstSong} a {lastSong} de{" "}
               {totalSongs.toLocaleString("es")}.
             </p>
             <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wide text-[#6b7280]">

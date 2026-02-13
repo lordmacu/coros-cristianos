@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "coros cristianos",
+    "canciones cristianas",
     "letras cristianas",
     "musica de adoracion",
     "alabanza",
-    "canciones cristianas",
+    "coros cristianos",
   ],
   openGraph: {
     type: "website",
@@ -89,7 +89,7 @@ export default function RootLayout({
               href="/"
               className="font-[family-name:var(--font-display)] text-lg font-bold text-[#111827] transition hover:text-[#374151]"
             >
-              🎵 Coros Cristianos
+              🎵 Canciones Cristianas
             </Link>
             <ul className="flex items-center gap-1 sm:gap-2">
               <li>

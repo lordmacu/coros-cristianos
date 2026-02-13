@@ -10,12 +10,12 @@ const pageUrl = `${siteUrl}/videos`;
 const fallbackImage = `${siteUrl}/opengraph-image`;
 
 export const metadata: Metadata = {
-  title: "Videos de coros cristianos – Coros Cristianos",
+  title: "Videos de canciones cristianas – Canciones Cristianas",
   description:
     "Mira los mejores videos de coros y alabanzas cristianas. Más de 600 videos de YouTube de artistas cristianos con letras completas.",
   keywords: [
     "videos cristianos",
-    "coros cristianos videos",
+    "canciones cristianas videos",
     "alabanzas cristianas youtube",
     "musica cristiana videos",
     "videos de adoracion",
@@ -25,17 +25,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_CO",
     url: pageUrl,
-    title: "Videos de coros cristianos",
+    title: "Videos de canciones cristianas",
     description:
-      "Mira los mejores videos de coros y alabanzas cristianas. Más de 600 videos de artistas cristianos.",
+      "Mira los mejores videos de canciones y alabanzas cristianas. Más de 600 videos de artistas cristianos.",
     siteName: siteConfig.name,
-    images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Videos de coros cristianos" }],
+    images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Videos de canciones cristianas" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Videos de coros cristianos",
+    title: "Videos de canciones cristianas",
     description:
-      "Mira los mejores videos de coros y alabanzas cristianas. Más de 600 videos de artistas cristianos.",
+      "Mira los mejores videos de canciones y alabanzas cristianas. Más de 600 videos de artistas cristianos.",
     images: [fallbackImage],
   },
   robots: {
@@ -66,7 +66,7 @@ export default async function VideosPage() {
         "@type": "CollectionPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
-        name: "Videos de coros cristianos",
+        name: "Videos de canciones cristianas",
         description: `${data.totalVideos} videos de ${data.totalArtists} artistas cristianos.`,
         inLanguage: "es",
         isPartOf: { "@type": "WebSite", "@id": `${siteUrl}/#website` },
@@ -82,7 +82,7 @@ export default async function VideosPage() {
       {
         "@type": "ItemList",
         "@id": `${pageUrl}#videolist`,
-        name: "Videos de coros cristianos",
+        name: "Videos de canciones cristianas",
         numberOfItems: data.totalVideos,
         itemListElement: data.videos.slice(0, 50).map((v, i) => ({
           "@type": "ListItem",

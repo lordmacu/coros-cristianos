@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = `Ranking de artistas cristianos (${totalArtists})`;
   const description = topName
     ? `Ranking de artistas con mas coros publicados. Lidera: ${topName}.`
-    : "Ranking de artistas con mas coros publicados en Coros Cristianos.";
+    : "Ranking de artistas con mas canciones publicadas en Canciones Cristianas.";
   const canonical = `${siteUrl}/ranking/artistas`;
 
   return {

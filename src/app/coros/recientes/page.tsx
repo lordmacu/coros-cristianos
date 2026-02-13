@@ -38,8 +38,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const songs = await getAllSongPosts();
   const datedSongs = songs.filter((song) => toTimestamp(song.generatedAt) > 0);
 
-  const title = "Coros cristianos recientes";
-  const description = `Descubre los ${Math.min(MAX_RECENT_SONGS, datedSongs.length)} coros cristianos mas recientes y actualizados de nuestro catalogo.`;
+  const title = "Canciones cristianas recientes";
+  const description = `Descubre las ${Math.min(MAX_RECENT_SONGS, datedSongs.length)} canciones cristianas mas recientes y actualizadas de nuestro catalogo.`;
   const canonical = `${siteUrl}/coros/recientes`;
 
   return {
@@ -53,7 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       siteName: siteConfig.name,
-      images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Coros cristianos recientes" }],
+      images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Canciones cristianas recientes" }],
     },
     twitter: { card: "summary_large_image", title, description, images: [fallbackImage] },
     robots: {
@@ -81,8 +81,8 @@ export default async function RecentSongsPage() {
         "@type": "CollectionPage",
         "@id": `${siteUrl}/coros/recientes#webpage`,
         url: `${siteUrl}/coros/recientes`,
-        name: "Coros cristianos recientes",
-        description: `Listado de ${recentSongs.length} coros cristianos recientemente actualizados.`,
+        name: "Canciones cristianas recientes",
+        description: `Listado de ${recentSongs.length} canciones cristianas recientemente actualizadas.`,
         inLanguage: "es",
         isPartOf: { "@type": "WebSite", "@id": `${siteUrl}/#website` },
       },
@@ -97,7 +97,7 @@ export default async function RecentSongsPage() {
       {
         "@type": "ItemList",
         "@id": `${siteUrl}/coros/recientes#songlist`,
-        name: "Coros cristianos recientes",
+        name: "Canciones cristianas recientes",
         numberOfItems: recentSongs.length,
         itemListOrder: "https://schema.org/ItemListOrderDescending",
         itemListElement: recentSongs.map((song, idx) => ({
@@ -134,7 +134,7 @@ export default async function RecentSongsPage() {
           <header className="border-b border-[#eef0f3] pb-8">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6b7280]">Actualizaciones</p>
             <h1 className="mt-2 max-w-4xl font-[family-name:var(--font-display)] text-4xl leading-tight text-[#111827] sm:text-5xl">
-              Coros cristianos recientes
+              Canciones cristianas recientes
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-8 text-[#4b5563]">
               Los {recentSongs.length} coros con fecha de actualizacion mas reciente.

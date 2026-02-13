@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: ArtistPageProps): Promise<Met
   const siteUrl = getSiteUrl();
   const pageUrl = `${siteUrl}/artistas/${artist.slug}`;
   const fallbackImage = `${siteUrl}/opengraph-image`;
-  const title = `Letras de ${artist.name} – ${artist.songCount} coros cristianos`;
-  const description = `Todas las letras de coros cristianos de ${artist.name}. ${artist.songCount} canciones con reflexiones devocionales, video de YouTube y ficha del autor.`;
+  const title = `Letras de ${artist.name} – ${artist.songCount} canciones cristianas`;
+  const description = `Todas las letras de canciones cristianas de ${artist.name}. ${artist.songCount} canciones con reflexiones devocionales, video de YouTube y ficha del autor.`;
   const imageUrl = artist.thumbnailUrl ?? fallbackImage;
   const imageWidth = artist.thumbnailUrl ? 480 : 1200;
   const imageHeight = artist.thumbnailUrl ? 360 : 630;
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: ArtistPageProps): Promise<Met
     keywords: [
       artist.name,
       `letras de ${artist.name}`,
-      "coros cristianos",
+      "canciones cristianas",
       "letras cristianas",
       "musica de adoracion",
     ],
@@ -99,7 +99,7 @@ export default async function ArtistDetailPage({ params }: ArtistPageProps) {
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
         name: `Letras de ${artist.name}`,
-        description: `${artist.songCount} coros cristianos de ${artist.name}.`,
+        description: `${artist.songCount} canciones cristianas de ${artist.name}.`,
         inLanguage: "es",
         isPartOf: { "@type": "WebSite", "@id": `${siteUrl}/#website` },
       },

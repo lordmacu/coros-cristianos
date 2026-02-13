@@ -20,15 +20,15 @@ export async function generateMetadata(): Promise<Metadata> {
   const index = await getHomeIndex();
   const totalSongs = index?.totalSongs ?? 0;
 
-  const title = "Coros Cristianos: Letras, Acordes y Reflexiones Devocionales";
-  const description = `Explora mas de ${totalSongs.toLocaleString("es")} letras de coros cristianos con reflexiones devocionales, video de YouTube y ficha del autor. Encuentra alabanzas, adoracion y canticos espirituales.`;
+  const title = "Canciones Cristianas: Letras, Acordes y Reflexiones Devocionales";
+  const description = `Explora mas de ${totalSongs.toLocaleString("es")} letras de canciones cristianas con reflexiones devocionales, video de YouTube y ficha del autor. Encuentra alabanzas, adoracion y canticos espirituales.`;
   const fallbackImage = `${siteUrl}/opengraph-image`;
 
   return {
     title,
     description,
     keywords: [
-      "coros cristianos",
+      "canciones cristianas",
       "letras cristianas",
       "musica de adoracion",
       "alabanza",
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: fallbackImage,
           width: 1200,
           height: 630,
-          alt: "Coros Cristianos – Letras y reflexiones devocionales",
+          alt: "Canciones Cristianas – Letras y reflexiones devocionales",
         },
       ],
     },
@@ -118,8 +118,8 @@ export default async function HomePage() {
         "@type": "CollectionPage",
         "@id": `${siteUrl}#webpage`,
         url: siteUrl,
-        name: "Coros Cristianos: Letras, Acordes y Reflexiones Devocionales",
-        description: `Explora mas de ${totalSongs.toLocaleString("es")} letras de coros cristianos con reflexiones devocionales.`,
+        name: "Canciones Cristianas: Letras, Acordes y Reflexiones Devocionales",
+        description: `Explora mas de ${totalSongs.toLocaleString("es")} letras de canciones cristianas con reflexiones devocionales.`,
         inLanguage: "es",
         isPartOf: { "@type": "WebSite", "@id": `${siteUrl}/#website` },
       },
@@ -131,7 +131,7 @@ export default async function HomePage() {
       {
         "@type": "ItemList",
         "@id": `${siteUrl}#songlist`,
-        name: "Listado de coros cristianos",
+        name: "Listado de canciones cristianas",
         numberOfItems: songs.length,
         itemListOrder: "https://schema.org/ItemListOrderAscending",
         itemListElement: songs.map((song, idx) => ({
@@ -165,12 +165,12 @@ export default async function HomePage() {
           </nav>
 
           <header className="border-b border-[#eef0f3] pb-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6b7280]">Biblioteca De Coros</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6b7280]">Biblioteca De Canciones</p>
             <h1 className="mt-2 max-w-4xl font-[family-name:var(--font-display)] text-4xl leading-tight text-[#111827] sm:text-5xl">
               Letras cristianas con contexto, video y contenido devocional
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-8 text-[#4b5563]">
-              Explora mas de {totalSongs.toLocaleString("es")} letras de coros cristianos. Cada coro incluye la
+              Explora mas de {totalSongs.toLocaleString("es")} letras de canciones cristianas. Cada cancion incluye la
               letra completa, una reflexion devocional, ficha del autor y video de YouTube cuando esta disponible.
             </p>
             <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wide text-[#6b7280]">

@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "Coros Cristianos",
+  name: "Canciones Cristianas",
   description:
-    "Letras de coros cristianos con reflexiones devocionales, ficha del autor y video de YouTube cuando esta disponible.",
+    "Letras de canciones cristianas con reflexiones devocionales, ficha del autor y video de YouTube cuando esta disponible.",
   defaultUrl: "https://cancionescristianas.net",
 };
 

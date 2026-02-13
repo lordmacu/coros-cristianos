@@ -39,7 +39,7 @@ export default function OpenGraphImage() {
             color: "#cbd5e1",
           }}
         >
-          Coros Cristianos
+          Canciones Cristianas
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>

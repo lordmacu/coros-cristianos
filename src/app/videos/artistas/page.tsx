@@ -9,8 +9,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const fallbackImage = `${siteUrl}/opengraph-image`;
   const [artists, videosData] = await Promise.all([getVideoArtists(), getVideosData()]);
 
-  const title = `Videos por artista (${artists.length}) – Coros Cristianos`;
-  const description = `Explora ${videosData?.totalVideos ?? 0} videos de coros cristianos agrupados por ${artists.length} artistas.`;
+  const title = `Videos por artista (${artists.length}) – Canciones Cristianas`;
+  const description = `Explora ${videosData?.totalVideos ?? 0} videos de canciones cristianas agrupados por ${artists.length} artistas.`;
   const canonical = `${siteUrl}/videos/artistas`;
 
   return {
@@ -125,7 +125,7 @@ export default async function VideosByArtistPage() {
           <header className="border-b border-[#eef0f3] pb-8">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6b7280]">Videos Por Artista</p>
             <h1 className="mt-2 max-w-4xl font-[family-name:var(--font-display)] text-4xl leading-tight text-[#111827] sm:text-5xl">
-              Artistas con videos de coros cristianos
+              Artistas con videos de canciones cristianas
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-8 text-[#4b5563]">
               Explora {videosData?.totalVideos ?? 0} videos agrupados en {artists.length} artistas.

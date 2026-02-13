@@ -26,11 +26,11 @@ export async function GET() {
   const totalArtists = artistsIndex?.totalArtists ?? 0;
   const totalPages = homeIndex?.totalPages ?? 0;
 
-  const text = `# Coros Cristianos
+  const text = `# Canciones Cristianas
 
-> Letras de coros cristianos con reflexiones devocionales, ficha del autor y video de YouTube cuando esta disponible.
+> Letras de canciones cristianas con reflexiones devocionales, ficha del autor y video de YouTube cuando esta disponible.
 
-Coros Cristianos es una plataforma de consulta de letras cristianas en español.
+Canciones Cristianas es una plataforma de consulta de letras cristianas en español.
 
 ## Contenido principal
 

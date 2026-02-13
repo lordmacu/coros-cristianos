@@ -10,8 +10,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const index = await getArtistsIndex();
   const totalArtists = index?.totalArtists ?? 0;
 
-  const title = "Artistas de Coros Cristianos – Directorio Completo";
-  const description = `Explora ${totalArtists} artistas y compositores de coros cristianos. Encuentra todas las letras organizadas por autor con reflexiones devocionales.`;
+  const title = "Artistas de Canciones Cristianas – Directorio Completo";
+  const description = `Explora ${totalArtists} artistas y compositores de canciones cristianas. Encuentra todas las letras organizadas por autor con reflexiones devocionales.`;
 
   return {
     title,
@@ -94,8 +94,8 @@ export default async function ArtistsPage() {
         "@type": "CollectionPage",
         "@id": `${siteUrl}/artistas#webpage`,
         url: `${siteUrl}/artistas`,
-        name: "Artistas de Coros Cristianos",
-        description: `Directorio de ${artists.length} artistas y compositores de coros cristianos.`,
+        name: "Artistas de Canciones Cristianas",
+        description: `Directorio de ${artists.length} artistas y compositores de canciones cristianas.`,
         inLanguage: "es",
         isPartOf: { "@type": "WebSite", "@id": `${siteUrl}/#website` },
       },
@@ -110,7 +110,7 @@ export default async function ArtistsPage() {
       {
         "@type": "ItemList",
         "@id": `${siteUrl}/artistas#artistlist`,
-        name: "Artistas de Coros Cristianos",
+        name: "Artistas de Canciones Cristianas",
         numberOfItems: artists.length,
         itemListOrder: "https://schema.org/ItemListOrderAscending",
         itemListElement: artists.slice(0, 50).map((artist, idx) => ({
@@ -153,7 +153,7 @@ export default async function ArtistsPage() {
               Directorio de Artistas
             </p>
             <h1 className="mt-2 max-w-4xl font-[family-name:var(--font-display)] text-4xl leading-tight text-[#111827] sm:text-5xl">
-              Artistas y compositores de coros cristianos
+              Artistas y compositores de canciones cristianas
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-8 text-[#4b5563]">
               Explora {artists.length} artistas y encuentra todas sus letras con reflexiones
