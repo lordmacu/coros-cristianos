@@ -217,6 +217,43 @@ export default async function HomePage() {
             </nav>
           ) : null}
         </div>
+
+        {/* Promo contextual: canciones para ocasiones especiales */}
+        <section
+          aria-labelledby="ocasiones-especiales"
+          className="mt-6 rounded-3xl border border-[#e5e7eb] bg-[#ffffff] p-6 shadow-[0_14px_40px_-35px_rgba(15,23,42,0.32)] sm:p-8 lg:p-10"
+        >
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6b7280]">Ocasiones especiales</p>
+          <h2
+            id="ocasiones-especiales"
+            className="mt-2 max-w-3xl font-[family-name:var(--font-display)] text-2xl leading-snug text-[#111827] sm:text-3xl"
+          >
+            Canciones para aniversarios, bodas y el Día de la Madre
+          </h2>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-[#4b5563]">
+            Muchas de estas alabanzas acompañan los momentos en que celebramos a quienes amamos: un aniversario, una
+            boda, un cumpleaños o el Día de la Madre. Si estás en la capital y quieres completar la sorpresa, en{" "}
+            <a
+              href="https://sorpresas.enbogota.app/"
+              target="_blank"
+              rel="noopener"
+              className="font-semibold text-[#111827] underline decoration-[#cbd5e1] underline-offset-4 transition hover:decoration-[#111827]"
+            >
+              Sorpresas en Bogotá
+            </a>{" "}
+            encuentras desayunos sorpresa, flores y regalos a domicilio para acompañar esas fechas inolvidables.
+          </p>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-[#4b5563]">
+            ¿Buscas inspiración?{" "}
+            <Link
+              href="/canciones-para-ocasiones-especiales"
+              className="font-semibold text-[#111827] underline decoration-[#cbd5e1] underline-offset-4 transition hover:decoration-[#111827]"
+            >
+              Mira nuestras guías de canciones para cada ocasión
+            </Link>
+            .
+          </p>
+        </section>
       </main>
     </>
   );

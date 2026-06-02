@@ -3,6 +3,7 @@ import { getAllSongPosts, getHomeIndex } from "@/lib/song-posts";
 import { getArtistsIndex } from "@/lib/artists";
 import { getVideoArtists, getVideosData } from "@/lib/videos";
 import { getSiteUrl } from "@/lib/site";
+import { OCCASIONS, OCCASIONS_HUB_PATH } from "@/lib/occasions";
 
 export const dynamic = "force-static";
 
@@ -82,11 +83,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   /* ── Extra hubs ── */
   const extraPages: MetadataRoute.Sitemap = [
     {
-      url: `${siteUrl}/buscar`,
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    },
-    {
       url: `${siteUrl}/coros/recientes`,
       lastModified: homeLastModified,
       changeFrequency: "daily" as const,
@@ -97,6 +93,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: artistsLastModified,
       changeFrequency: "weekly" as const,
       priority: 0.8,
+    },
+    {
+      url: `${siteUrl}${OCCASIONS_HUB_PATH}`,
+      lastModified: homeLastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    ...OCCASIONS.map((o) => ({
+      url: `${siteUrl}${OCCASIONS_HUB_PATH}/${o.slug}`,
+      lastModified: homeLastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    {
+      url: `${siteUrl}/llms.txt`,
+      lastModified: homeLastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.4,
+    },
+    {
+      url: `${siteUrl}/llms-full.txt`,
+      lastModified: homeLastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.4,
     },
   ];
 

@@ -133,6 +133,60 @@ export default function RootLayout({
           </div>
         </nav>
         {children}
+
+        <footer className="mt-16 border-t border-[#e5e7eb] bg-white">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-8 lg:px-12">
+            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="lg:col-span-2">
+                <Link
+                  href="/"
+                  className="font-[family-name:var(--font-display)] text-lg font-bold text-[#111827]"
+                >
+                  🎵 Canciones Cristianas
+                </Link>
+                <p className="mt-3 max-w-sm text-sm leading-7 text-[#6b7280]">
+                  Letras de canciones cristianas con reflexiones devocionales, ficha del autor y video.
+                  Alabanzas, adoración y cánticos espirituales.
+                </p>
+              </div>
+
+              <nav aria-label="Enlaces del pie de página">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#9ca3af]">Explorar</p>
+                <ul className="mt-4 space-y-2 text-sm">
+                  <li><Link href="/" className="text-[#4b5563] transition hover:text-[#111827]">Inicio</Link></li>
+                  <li><Link href="/artistas" className="text-[#4b5563] transition hover:text-[#111827]">Artistas</Link></li>
+                  <li><Link href="/videos" className="text-[#4b5563] transition hover:text-[#111827]">Videos</Link></li>
+                  <li><Link href="/coros/recientes" className="text-[#4b5563] transition hover:text-[#111827]">Coros recientes</Link></li>
+                  <li><Link href="/canciones-para-ocasiones-especiales" className="text-[#4b5563] transition hover:text-[#111827]">Ocasiones especiales</Link></li>
+                  <li><Link href="/buscar" className="text-[#4b5563] transition hover:text-[#111827]">Buscar</Link></li>
+                </ul>
+              </nav>
+
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#9ca3af]">También te puede interesar</p>
+                <ul className="mt-4 space-y-2 text-sm">
+                  <li>
+                    <a
+                      href="https://sorpresas.enbogota.app/"
+                      target="_blank"
+                      rel="noopener"
+                      className="text-[#4b5563] transition hover:text-[#111827]"
+                    >
+                      Sorpresas en Bogotá
+                    </a>
+                  </li>
+                </ul>
+                <p className="mt-2 max-w-xs text-xs leading-6 text-[#9ca3af]">
+                  Desayunos sorpresa, flores y regalos a domicilio en Bogotá.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-10 border-t border-[#eef0f3] pt-6 text-xs text-[#9ca3af]">
+              © {new Date().getFullYear()} Canciones Cristianas. Las letras pertenecen a sus respectivos autores.
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
