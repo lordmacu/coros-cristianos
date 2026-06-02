@@ -9,41 +9,47 @@ const siteUrl = getSiteUrl();
 const pageUrl = `${siteUrl}/videos`;
 const fallbackImage = `${siteUrl}/opengraph-image`;
 
-export const metadata: Metadata = {
-  title: "Videos de canciones cristianas – Canciones Cristianas",
-  description:
-    "Mira los mejores videos de coros y alabanzas cristianas. Más de 600 videos de YouTube de artistas cristianos con letras completas.",
-  keywords: [
-    "videos cristianos",
-    "canciones cristianas videos",
-    "alabanzas cristianas youtube",
-    "musica cristiana videos",
-    "videos de adoracion",
-  ],
-  alternates: { canonical: pageUrl },
-  openGraph: {
-    type: "website",
-    locale: "es_CO",
-    url: pageUrl,
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getVideosData();
+  const totalVideos = data?.totalVideos ?? 0;
+  const description =
+    totalVideos > 0
+      ? `Mira los mejores videos de canciones y alabanzas cristianas. Más de ${totalVideos.toLocaleString("es")} videos de artistas cristianos con letras completas.`
+      : "Mira los mejores videos de canciones y alabanzas cristianas de artistas cristianos con letras completas.";
+
+  return {
     title: "Videos de canciones cristianas",
-    description:
-      "Mira los mejores videos de canciones y alabanzas cristianas. Más de 600 videos de artistas cristianos.",
-    siteName: siteConfig.name,
-    images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Videos de canciones cristianas" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Videos de canciones cristianas",
-    description:
-      "Mira los mejores videos de canciones y alabanzas cristianas. Más de 600 videos de artistas cristianos.",
-    images: [fallbackImage],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
-  },
-};
+    description,
+    keywords: [
+      "videos cristianos",
+      "canciones cristianas videos",
+      "alabanzas cristianas youtube",
+      "musica cristiana videos",
+      "videos de adoracion",
+    ],
+    alternates: { canonical: pageUrl },
+    openGraph: {
+      type: "website",
+      locale: "es_CO",
+      url: pageUrl,
+      title: "Videos de canciones cristianas",
+      description,
+      siteName: siteConfig.name,
+      images: [{ url: fallbackImage, width: 1200, height: 630, alt: "Videos de canciones cristianas" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Videos de canciones cristianas",
+      description,
+      images: [fallbackImage],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    },
+  };
+}
 
 export default async function VideosPage() {
   const data = await getVideosData();

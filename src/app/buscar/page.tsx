@@ -20,8 +20,12 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
   },
 };
 

@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const fallbackImage = `${siteUrl}/opengraph-image`;
   const [artists, videosData] = await Promise.all([getVideoArtists(), getVideosData()]);
 
-  const title = `Videos por artista (${artists.length}) – Canciones Cristianas`;
+  const title = `Videos por artista (${artists.length})`;
   const description = `Explora ${videosData?.totalVideos ?? 0} videos de canciones cristianas agrupados por ${artists.length} artistas.`;
   const canonical = `${siteUrl}/videos/artistas`;
 
